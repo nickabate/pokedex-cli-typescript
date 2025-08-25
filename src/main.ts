@@ -1,9 +1,9 @@
 import { startREPL } from "./repl.js";
 import { initState } from "./state.js";
 
-const main = () => {
+const main = async () => {
     const state = initState();
-    startREPL(state);
+    await startREPL(state);
 };
 
 main();

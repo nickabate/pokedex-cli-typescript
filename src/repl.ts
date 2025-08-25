@@ -4,10 +4,10 @@ export const cleanInput = (input: string): string[] => {
     return input.trim().toLowerCase().split(/\s+/);
 };
 
-export const startREPL = (state: State) => {
+export const startREPL = async (state: State) => {
     state.readline.prompt();
 
-    state.readline.on('line', (input) => {
+    state.readline.on('line', async (input) => {
         const words = cleanInput(input);
         if (words.length === 0) {
             state.readline.prompt();
@@ -27,9 +27,9 @@ export const startREPL = (state: State) => {
         }
 
         try {
-            cmd.callback(state);
+            await cmd.callback(state);
         } catch (e) {
-            console.log(e);
+            console.log((e as Error).message);
         }
         state.readline.prompt();
     });
