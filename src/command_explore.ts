@@ -1,6 +1,6 @@
 import type { State } from "./state.js";
 
-export async function commandExplore(state: State, ...args: string[]) {
+export const commandExplore = async (state: State, ...args: string[]) => {
     if (args.length !== 1) {
         throw new Error("you must provide a location name");
     }
@@ -13,4 +13,4 @@ export async function commandExplore(state: State, ...args: string[]) {
     for (const enc of location.pokemon_encounters) {
         console.log(` - ${enc.pokemon.name}`);
     }
-}
+};
