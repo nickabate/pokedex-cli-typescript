@@ -1,8 +1,5 @@
-import { State } from './state';
-
-export const cleanInput = (input: string): string[] => {
-    return input.trim().toLowerCase().split(/\s+/);
-};
+import { State } from '../state/state.js';
+import { cleanInput } from '../utils/utils.js';
 
 export const startREPL = async (state: State) => {
     state.readline.prompt();

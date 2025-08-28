@@ -1,4 +1,4 @@
-import type { State } from "./state.js";
+import type { State } from "../state/state.js";
 
 export const commandExplore = async (state: State, ...args: string[]) => {
     if (args.length !== 1) {
